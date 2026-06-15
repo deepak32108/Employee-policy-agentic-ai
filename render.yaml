@@ -1,15 +1,6 @@
 services:
   - type: web
-    name: employee-policy-agentic-ai
-
-    runtime: python
-
-    buildCommand: |
-      pip install -r requirements.txt
-
-    startCommand: |
-      python main.py
-
-    envVars:
-      - key: GOOGLE_API_KEY
-        sync: false
+    name: employee-policy-agent
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.api.routes:app --host 0.0.0.0 --port $PORT
