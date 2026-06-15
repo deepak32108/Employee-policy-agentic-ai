@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback</title>
+</head>
+
+<body>
+
+<h1>Feedback System</h1>
+
+<textarea
+id="question"
+rows="3"
+cols="50"
+placeholder="Question">
+</textarea>
+
+<br><br>
+
+<textarea
+id="answer"
+rows="5"
+cols="50"
+placeholder="Answer">
+</textarea>
+
+<br><br>
+
+<button onclick="sendGood()">
+👍 Helpful
+</button>
+
+<button onclick="sendBad()">
+👎 Not Helpful
+</button>
+
+<script>
+
+async function submitFeedback(rating){
+
+    await fetch(
+        "http://127.0.0.1:8000/feedback",
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify({
+
+                question:
+                document.getElementById(
+                "question"
+                ).value,
+
+                answer:
+                document.getElementById(
+                "answer"
+                ).value,
+
+                rating:rating
+            })
+        }
+    );
+
+    alert("Feedback Saved");
+}
+
+function sendGood(){
+    submitFeedback("GOOD");
+}
+
+function sendBad(){
+    submitFeedback("BAD");
+}
+
+</script>
+
+</body>
+
+</html>

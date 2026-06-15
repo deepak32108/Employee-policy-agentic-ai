@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Agentic AI Analytics Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Employee Policy Agentic AI Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total Questions</h2>
+            <p id="total">0</p>
+        </div>
+
+        <div class="card">
+            <h2>Policy Questions</h2>
+            <p id="policy">0</p>
+        </div>
+
+        <div class="card">
+            <h2>Web Questions</h2>
+            <p id="web">0</p>
+        </div>
+
+        <div class="card">
+            <h2>Knowledge Gaps</h2>
+            <p id="gaps">0</p>
+        </div>
+
+        <div class="card">
+            <h2>Average Confidence</h2>
+            <p id="confidence">0</p>
+        </div>
+
+    </div>
+
+    <div class="chart-container">
+
+        <canvas id="questionChart"></canvas>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

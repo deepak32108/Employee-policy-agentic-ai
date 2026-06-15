@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Monitoring Dashboard</title>
+</head>
+
+<body>
+
+<h1>Monitoring Dashboard</h1>
+
+<button onclick="loadData()">
+Refresh
+</button>
+
+<br><br>
+
+<table border="1">
+
+<thead>
+
+<tr>
+    <th>Time</th>
+    <th>Question</th>
+    <th>Route</th>
+    <th>Confidence</th>
+    <th>Verdict</th>
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+<script>
+
+async function loadData(){
+
+    const response =
+        await fetch(
+            "http://127.0.0.1:8000/monitoring"
+        );
+
+    const data =
+        await response.json();
+
+    let rows = "";
+
+    data.forEach(item => {
+
+        rows += `
+        <tr>
+
+            <td>${item.timestamp}</td>
+
+            <td>${item.question}</td>
+
+            <td>${item.route}</td>
+
+            <td>${item.confidence}</td>
+
+            <td>${item.verdict}</td>
+
+        </tr>
+        `;
+    });
+
+    document.getElementById(
+        "tableBody"
+    ).innerHTML = rows;
+}
+
+loadData();
+
+</script>
+
+</body>
+
+</html>

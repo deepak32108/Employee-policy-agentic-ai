@@ -1,0 +1,366 @@
+[
+    {
+        "timestamp": "2026-06-11 15:54:12.764839",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 10:34:24.766164",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 10:56:12.039677",
+        "question": "Who is Elon Musk?",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-12 10:56:29.954645",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 11:14:29.302932",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 12:27:29.066196",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 12:27:32.810945",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 12:30:08.820929",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 12:47:25.239815",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 12:54:06.947251",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 12:57:38.253164",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:04:43.615059",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:18:52.763210",
+        "question": "how many casual leaves i can take a year?",
+        "route": "POLICY",
+        "confidence": 95,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:19:45.607882",
+        "question": "how many casual leaves i can take ?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:22:42.738816",
+        "question": "how many casual leaves i can take ?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:32:48.314394",
+        "question": "how many casual leaves i can take in a year",
+        "route": "POLICY",
+        "confidence": 85,
+        "verdict": "NOT_SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:44:30.248162",
+        "question": "how many casual leaves i can take in an year?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "NOT_SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 13:59:12.791060",
+        "question": "if am the new joiner am i eligible for optional holidays",
+        "route": "POLICY",
+        "confidence": 80,
+        "verdict": "NOT_SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 14:03:21.588106",
+        "question": "if iam a new joiner how many holidays i can get now ?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 14:04:24.729923",
+        "question": "if iam new joiner how many holidays i can get initially?",
+        "route": "POLICY",
+        "confidence": 90,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-12 14:18:04.260821",
+        "question": "who is elon mask",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-13 16:37:39.081131",
+        "question": "who is elon mask?",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-13 19:45:04.993418",
+        "question": "How many casual leaves are allowed?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-13 20:08:45.766735",
+        "question": "who is elon mask",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-14 14:57:09.556923",
+        "question": "who is elon mask",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-14 16:05:27.993242",
+        "question": "how many casual leaves i can take ?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:05:46.021705",
+        "question": "how many casual leaves i can take ?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:06:17.377618",
+        "question": "how many casual leaves i can take ?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:12:38.902226",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:12:54.510000",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:20:24.829180",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:20:45.603951",
+        "question": "What is WFH policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:21:22.094523",
+        "question": "who is elon mask",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-14 16:23:22.185541",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:23:41.035171",
+        "question": "What is work from home policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 16:24:32.555078",
+        "question": "What is Google CEO salary?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 17:18:38.993421",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-14 17:19:41.390524",
+        "question": "What is work from home policy?",
+        "route": "POLICY",
+        "confidence": 82,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:15:10.813356",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:20:27.340387",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:22:05.138305",
+        "question": "What is work from home policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:23:01.098126",
+        "question": "What is attendance policy?",
+        "route": "POLICY",
+        "confidence": 70,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:27:31.139001",
+        "question": "Who is Google CEO?",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-15 12:27:45.706392",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:29:04.543532",
+        "question": "Leave policy? Work from home? Attendance policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 12:29:31.348169",
+        "question": "who is google ceo?",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-15 16:35:53.016916",
+        "question": "how many casual leaves i can take ?",
+        "route": "POLICY",
+        "confidence": 68,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 16:36:32.162254",
+        "question": "who is oracle ceo",
+        "route": "WEB",
+        "confidence": 100,
+        "verdict": "WEB"
+    },
+    {
+        "timestamp": "2026-06-15 16:37:45.118464",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 74,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 16:38:04.915957",
+        "question": "What is work from home policy?",
+        "route": "POLICY",
+        "confidence": 84,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 16:53:39.169326",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-15 16:54:10.132561",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 78,
+        "verdict": "SUPPORTED"
+    }
+]

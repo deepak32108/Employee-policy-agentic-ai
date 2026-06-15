@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f1f5f9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background: #334155;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+#chat-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #dbeafe;
+}
+
+.user {
+    background: #2563eb;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    max-width: 75%;
+    margin-left: auto;
+}
+
+.bot {
+    background: #f8fafc;
+    color: black;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    max-width: 75%;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.input-area input {
+    flex: 1;
+    height: 50px;
+    padding: 0 15px;
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+    color: black;
+}
+
+.input-area button {
+    width: 120px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.input-area button:hover {
+    background: #1d4ed8;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background: #1e293b;
+    color: white;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.dark-mode {
+    background: #0f172a;
+    color: white;
+}
+
+.dark-mode #chat-box {
+    background: #1e293b;
+}
+
+.dark-mode .bot {
+    background: #334155;
+    color: white;
+}
+
+.dark-mode .input-area input {
+    background: #1e293b;
+    color: white;
+}
+.input-area button {
+
+    min-width: 100px;
+}
+/* ==========================
+   CHAT HISTORY
+========================== */
+
+#history-list {
+
+    margin-top: 15px;
+
+    max-height: 400px;
+
+    overflow-y: auto;
+}
+
+.history-item {
+
+    background: #1e293b;
+
+    color: white;
+
+    padding: 10px;
+
+    margin-bottom: 8px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+.history-item:hover {
+
+    background: #334155;
+}
+#confirmation-box {
+
+```
+margin-top: 15px;
+```
+
+}
+
+#confirmation-box .card {
+
+```
+background: white;
+
+padding: 15px;
+
+border-radius: 10px;
+
+border: 1px solid #ddd;
+```
+
+}
+
+#confirmation-box button {
+
+```
+margin-right: 10px;
+
+padding: 10px 20px;
+
+border: none;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+background: #2563eb;
+
+color: white;
+```
+
+}

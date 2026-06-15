@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Employee Policy Agentic AI</title>
+
+    <link rel="stylesheet" href="/frontend/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HISTORY SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>HR Copilot</h2>
+
+        <button onclick="toggleTheme()">
+            🌙 Dark Mode
+        </button>
+
+        <button onclick="showSection('chat')">
+            💬 Chat
+        </button>
+
+        <button onclick="showSection('analytics')">
+            📊 Analytics
+        </button>
+
+        <button onclick="showSection('monitoring')">
+            📈 Monitoring
+        </button>
+
+        <button onclick="showSection('feedback')">
+            👍 Feedback
+        </button>
+
+        <hr>
+
+        <h3>Chat History</h3>
+
+        <div id="history-list"></div>
+
+    </div>
+
+    <div class="content">
+
+       <div id="chat-section">
+
+       <h1>Employee Policy Assistant</h1>
+
+      <div id="chat-box"></div>
+
+      <div id="confirmation-box"></div>
+
+       <div class="input-area">
+
+        <input
+            type="text"
+            id="question"
+            placeholder="Ask your question..."
+        >
+
+        <button onclick="sendQuestion()">
+            Send
+        </button>
+
+        <button onclick="clearChat()">
+            Clear
+        </button>
+
+     </div>
+
+     </div>
+
+        <div
+            id="analytics-section"
+            class="hidden"
+        >
+
+            <h1>Analytics</h1>
+
+            <div id="analytics-content"></div>
+
+        </div>
+
+        <div
+            id="monitoring-section"
+            class="hidden"
+        >
+
+            <h1>Monitoring</h1>
+
+            <div id="monitoring-content"></div>
+
+        </div>
+
+        <div
+            id="feedback-section"
+            class="hidden"
+        >
+
+            <h1>Feedback</h1>
+
+            <div id="feedback-content">
+
+                <textarea
+                    id="feedback-question"
+                    placeholder="Question"
+                ></textarea>
+
+                <textarea
+                    id="feedback-answer"
+                    placeholder="Answer"
+                ></textarea>
+
+                <button onclick="sendGoodFeedback()">
+                    👍 Helpful
+                </button>
+
+                <button onclick="sendBadFeedback()">
+                    👎 Not Helpful
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/frontend/app.js"></script>
+
+</body>
+
+</html>
