@@ -1,10 +1,7 @@
 const API_URL = window.location.origin;
-
 let currentAnswer = "";
 let currentQuestion = "";
-
 async function sendQuestion(searchWeb = false) {
-
     const questionBox =
         document.getElementById("question");
 
