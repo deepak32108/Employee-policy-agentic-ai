@@ -1,0 +1,11 @@
+[33mcommit 07df9b60b815e9afbe10c9e35404674867154a35[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: deepak32108 <penumakadeepak7@gmail.com>
+Date:   Wed Jun 17 16:47:55 2026 +0530
+
+    Remove .env from repository
+
+[33mcommit 1c0d27e1e513ea6bd0a2614f9f56e718bdbef56c[m
+Author: deepak32108 <penumakadeepak7@gmail.com>
+Date:   Wed Jun 17 16:44:04 2026 +0530
+
+    Remove Google AI packages and fix dependencies
