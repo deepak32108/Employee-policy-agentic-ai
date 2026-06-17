@@ -1,11 +1,11 @@
 import os
+import shutil
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 
 from src.embeddings.embedding_model import get_embeddings
-
 
 DATA_FOLDER = "data"
 VECTOR_DB_PATH = "vectorstore"
@@ -25,13 +25,16 @@ def load_documents():
 
         pdf_path = os.path.join(DATA_FOLDER, pdf)
 
+        if not os.path.exists(pdf_path):
+            print(f"File not found: {pdf_path}")
+            continue
+
         print(f"Loading: {pdf}")
 
         loader = PyPDFLoader(pdf_path)
 
         docs = loader.load()
 
-        # add source information
         for doc in docs:
             doc.metadata["source"] = pdf
 
@@ -56,6 +59,10 @@ def split_documents(documents):
 
 def create_vector_database(chunks):
 
+    if os.path.exists(VECTOR_DB_PATH):
+        print("Removing old vector database...")
+        shutil.rmtree(VECTOR_DB_PATH)
+
     embeddings = get_embeddings()
 
     vector_db = Chroma.from_documents(
@@ -64,7 +71,7 @@ def create_vector_database(chunks):
         persist_directory=VECTOR_DB_PATH
     )
 
-    print("\nVector Database Created Successfully")
+    print("Vector Database Created Successfully")
 
     return vector_db
 
@@ -74,6 +81,10 @@ def main():
     print("\nLoading PDFs...\n")
 
     documents = load_documents()
+
+    if not documents:
+        print("No documents found.")
+        return
 
     print(f"\nTotal Pages Loaded: {len(documents)}")
 

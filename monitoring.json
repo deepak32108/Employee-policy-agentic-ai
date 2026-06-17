@@ -362,5 +362,33 @@
         "route": "POLICY",
         "confidence": 78,
         "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-17 10:00:22.984974",
+        "question": "What is the leave policy?",
+        "route": "POLICY",
+        "confidence": 60,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-17 10:03:45.974394",
+        "question": "What is the leave policy?",
+        "route": "POLICY",
+        "confidence": 68,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-17 10:03:57.210589",
+        "question": "How many casual leaves do employees get?",
+        "route": "POLICY",
+        "confidence": 50,
+        "verdict": "NOT_SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-17 10:06:26.765199",
+        "question": "What is leave policy?",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
     }
 ]
