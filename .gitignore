@@ -1,5 +1,45 @@
+# Environment variables — NEVER commit these
 .env
-venv/
-.idea/
+*.env
+
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Vector store data (rebuild on deploy)
+chroma_db/
+*.chroma
 vectorstore/
+
+# JSON data files (generated at runtime)
+analytics.json
+feedback.json
+monitoring.json
+
+# Test files
+test_*.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
