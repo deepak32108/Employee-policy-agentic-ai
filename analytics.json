@@ -1,7 +1,7 @@
 {
-    "total_questions": 64,
-    "policy_questions": 50,
-    "web_questions": 14,
+    "total_questions": 68,
+    "policy_questions": 51,
+    "web_questions": 17,
     "knowledge_gaps": 4,
-    "average_confidence": 92.40625
+    "average_confidence": 92.41176470588235
 }

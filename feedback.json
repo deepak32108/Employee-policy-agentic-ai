@@ -10,5 +10,32 @@
         "question": "",
         "answer": "",
         "rating": "GOOD"
+    },
+    {
+        "timestamp": "2026-06-29 15:52:31.577957",
+        "question": "who is oracle ceo",
+        "answer": "The current CEOs of Oracle are Clay Magouyrk and Mike Sicilia, who were appointed as co-CEOs, replacing Safra Catz. Larry Ellison is the Executive Chairman of the Board and Chief Technology Officer.",
+        "rating": 5,
+        "comment": "",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqz2jmec_b78ik2"
+    },
+    {
+        "timestamp": "2026-06-29 15:54:49.054599",
+        "question": "how many casual leaves i can take in an year",
+        "answer": "To verify the previous answer and provide an improved one based on the given document:\n\n1. **Verification of Previous Answer**: The previous answer stated that an employee can take 6 Days of casual leave per year. This needs to be verified against the provided HR policy document.\n\n2. **Correction of Mistakes**: Upon reviewing the document, it's clear that the information regarding casual leave is accurate as per the previous answer. However, to ensure completeness and accuracy, let's re-evaluate the information provided in the document.\n\n3. **Improved Answer**: According to the Alpha Tech Solutions Pvt. Ltd. HR Policy: Leave Benefit (Document ID: ATS-HR-LP-2026, Version 2.4), under the section \"LEAVE CATEGORIES & ENTITLEMENTS,\" it is stated that employees are allocated a total of 27 days of paid leave per calendar year. Specifically, for Casual Leave (CL), the document states: \n   - **Casual Leave (CL): 6 Days per year.**\n   - It is intended for unexpected personal matters.\n   - It cannot be combined with Privilege Leave.\n   - Unused CL lapses on Dec 31.\n\nTherefore, the improved answer, based solely on the information provided in the document, confirms that an employee can take **6 Days** of casual leave in a year, with the conditions as outlined in the policy.",
+        "rating": 4,
+        "comment": "",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqz2modf_f75o97"
+    },
+    {
+        "timestamp": "2026-06-29 15:55:04.070126",
+        "question": "who is elon musk",
+        "answer": "Elon Musk is an entrepreneur and business magnate who is the CEO and CTO of SpaceX, CEO of Tesla, Inc., and formerly the owner of Twitter (now known as X). He is known for his innovative and ambitious endeavors in the fields of electric cars, space exploration, and renewable energy. Musk is also one of the wealthiest people in the world, with a net worth of over $1 trillion. He is a highly influential figure, known for his visionary ideas and his ability to disrupt traditional industries.",
+        "rating": 4,
+        "comment": "",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqz2n1w1_cl4daj"
     }
 ]

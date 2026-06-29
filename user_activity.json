@@ -1,0 +1,38 @@
+[
+    {
+        "timestamp": "2026-06-29T15:52:14.492565",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "who is oracle ceo",
+        "search_web": false
+    },
+    {
+        "timestamp": "2026-06-29T15:52:18.849874",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "who is oracle ceo",
+        "search_web": true
+    },
+    {
+        "timestamp": "2026-06-29T15:54:07.852123",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "how many casual i can take in an year '",
+        "search_web": false
+    },
+    {
+        "timestamp": "2026-06-29T15:54:40.706611",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "how many casual leaves i can take in an year",
+        "search_web": false
+    },
+    {
+        "timestamp": "2026-06-29T15:54:57.021101",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "who is elon musk",
+        "search_web": false
+    },
+    {
+        "timestamp": "2026-06-29T15:54:58.492004",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "who is elon musk",
+        "search_web": true
+    }
+]

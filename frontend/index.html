@@ -5,7 +5,9 @@
 
     <title>Employee Policy Agentic AI</title>
 
-    <link rel="stylesheet" href="/frontend/style.css">
+    <link rel="stylesheet" href="style.css?v=feedback-dashboard-1">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -13,30 +15,28 @@
 
 <div class="container">
 
-    <!-- HISTORY SIDEBAR -->
-
     <div class="sidebar">
 
         <h2>HR Copilot</h2>
 
         <button onclick="toggleTheme()">
-            🌙 Dark Mode
+            Dark Mode
         </button>
 
         <button onclick="showSection('chat')">
-            💬 Chat
+            Chat
         </button>
 
         <button onclick="showSection('analytics')">
-            📊 Analytics
+            Analytics
         </button>
 
         <button onclick="showSection('monitoring')">
-            📈 Monitoring
+            Monitoring
         </button>
 
         <button onclick="showSection('feedback')">
-            👍 Feedback
+            Feedback
         </button>
 
         <hr>
@@ -49,33 +49,33 @@
 
     <div class="content">
 
-       <div id="chat-section">
+        <div id="chat-section">
 
-       <h1>Employee Policy Assistant</h1>
+            <h1>Employee Policy Assistant</h1>
 
-      <div id="chat-box"></div>
+            <div id="chat-box"></div>
 
-      <div id="confirmation-box"></div>
+            <div id="confirmation-box"></div>
 
-       <div class="input-area">
+            <div class="input-area">
 
-        <input
-            type="text"
-            id="question"
-            placeholder="Ask your question..."
-        >
+                <input
+                    type="text"
+                    id="question"
+                    placeholder="Ask your question..."
+                >
 
-        <button onclick="sendQuestion()">
-            Send
-        </button>
+                <button onclick="sendQuestion()">
+                    Send
+                </button>
 
-        <button onclick="clearChat()">
-            Clear
-        </button>
+                <button onclick="clearChat()">
+                    Clear
+                </button>
 
-     </div>
+            </div>
 
-     </div>
+        </div>
 
         <div
             id="analytics-section"
@@ -106,27 +106,7 @@
 
             <h1>Feedback</h1>
 
-            <div id="feedback-content">
-
-                <textarea
-                    id="feedback-question"
-                    placeholder="Question"
-                ></textarea>
-
-                <textarea
-                    id="feedback-answer"
-                    placeholder="Answer"
-                ></textarea>
-
-                <button onclick="sendGoodFeedback()">
-                    👍 Helpful
-                </button>
-
-                <button onclick="sendBadFeedback()">
-                    👎 Not Helpful
-                </button>
-
-            </div>
+            <div id="feedback-content"></div>
 
         </div>
 
@@ -134,7 +114,7 @@
 
 </div>
 
-<script src="/frontend/app.js"></script>
+<script src="app.js?v=feedback-dashboard-1"></script>
 
 </body>
 

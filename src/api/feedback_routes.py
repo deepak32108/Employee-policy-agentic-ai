@@ -17,7 +17,13 @@ class FeedbackRequest(
 
     answer: str
 
-    rating: str
+    rating: int
+
+    comment: str = ""
+
+    user_id: str = ""
+
+    answer_id: str = ""
 
 
 @router.post("/feedback")
@@ -31,7 +37,13 @@ def feedback(
 
         request.answer,
 
-        request.rating
+        request.rating,
+
+        request.comment,
+
+        request.user_id,
+
+        request.answer_id
     )
 
 

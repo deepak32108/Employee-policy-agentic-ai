@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 import os
+import json
+from datetime import datetime
 
 from src.graph.workflow import graph
 from src.utils.search import search_web
@@ -58,8 +60,8 @@ app.mount(
 @app.get("/")
 def home():
 
-    return FileResponse(
-        "frontend/index.html"
+    return RedirectResponse(
+        url="/frontend/index.html"
     )
 
 
@@ -73,6 +75,53 @@ class QuestionRequest(BaseModel):
 
     search_web: bool = False
 
+    user_id: str = ""
+
+
+def record_user_activity(
+        user_id: str,
+        question: str,
+        search_web: bool = False
+):
+    if not user_id:
+        return
+
+    activity_file = "user_activity.json"
+    data = []
+
+    if os.path.exists(
+            activity_file
+    ):
+        with open(
+                activity_file,
+                "r",
+                encoding="utf-8"
+        ) as file:
+            try:
+                data = json.load(file)
+            except json.JSONDecodeError:
+                data = []
+
+    data.append(
+        {
+            "timestamp": datetime.now().isoformat(),
+            "user_id": user_id,
+            "question": question,
+            "search_web": search_web
+        }
+    )
+
+    with open(
+            activity_file,
+            "w",
+            encoding="utf-8"
+    ) as file:
+        json.dump(
+            data,
+            file,
+            indent=4
+        )
+
 
 # -------------------------------
 # Chat Endpoint
@@ -82,6 +131,12 @@ class QuestionRequest(BaseModel):
 def ask_question(
         request: QuestionRequest
 ):
+
+    record_user_activity(
+        request.user_id,
+        request.question,
+        request.search_web
+    )
 
     result = graph.invoke(
         {

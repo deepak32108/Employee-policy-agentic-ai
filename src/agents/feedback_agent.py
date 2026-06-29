@@ -8,7 +8,10 @@ FEEDBACK_FILE = "feedback.json"
 def save_feedback(
         question: str,
         answer: str,
-        rating: str
+        rating,
+        comment: str = "",
+        user_id: str = "",
+        answer_id: str = ""
 ):
 
     data = []
@@ -43,7 +46,16 @@ def save_feedback(
             answer,
 
         "rating":
-            rating
+            rating,
+
+        "comment":
+            comment,
+
+        "user_id":
+            user_id,
+
+        "answer_id":
+            answer_id
     })
 
     with open(
@@ -89,40 +101,58 @@ def get_feedback_stats():
 
         data = json.load(f)
 
-    good = len([
-        x for x in data
-        if x["rating"] == "GOOD"
-    ])
+    ratings = []
 
-    bad = len([
-        x for x in data
-        if x["rating"] == "BAD"
-    ])
+    for item in data:
+        rating = item.get(
+            "rating"
+        )
 
-    total = good + bad
+        if isinstance(
+                rating,
+                int
+        ):
+            ratings.append(
+                rating
+            )
 
-    score = 0
+        elif rating == "GOOD":
+            ratings.append(
+                5
+            )
+
+        elif rating == "BAD":
+            ratings.append(
+                1
+            )
+
+    total = len(
+        ratings
+    )
+
+    distribution = {
+        str(star): ratings.count(star)
+        for star in range(1, 6)
+    }
+
+    average_rating = 0
 
     if total > 0:
-
-        score = round(
-            (good / total) * 100,
+        average_rating = round(
+            sum(ratings) / total,
             2
         )
 
     return {
 
-        "good":
-            good,
-
-        "bad":
-            bad,
-
         "total":
             total,
 
-        "satisfaction_score":
-            score
+        "average_rating":
+            average_rating,
+
+        "rating_distribution":
+            distribution
     }
 
 
