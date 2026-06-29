@@ -85,9 +85,9 @@ def web_node(state):
 
  return {
     "answer": result["answer"],
-    "confidence": 100,
-    "verdict": "WEB",
-    "citations": [],
+    "confidence": result["confidence"],
+    "verdict": result["verdict"],
+    "citations": result["citations"],
     "needs_web_confirmation": False
   }
 # -----------------------------------

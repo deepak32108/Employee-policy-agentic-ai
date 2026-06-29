@@ -91,9 +91,19 @@ async function sendQuestion(searchWeb = false) {
             data.citations.forEach(
                 citation => {
 
-                    sourcesHtml +=
-                        `• ${citation.source}
-                        (Page ${citation.page})<br>`;
+                    if (citation.link) {
+
+                        sourcesHtml +=
+                            `• <a href="${citation.link}" target="_blank">
+                                ${citation.source}
+                            </a><br>`;
+
+                    } else {
+
+                        sourcesHtml +=
+                            `• ${citation.source}
+                            (Page ${citation.page})<br>`;
+                    }
                 }
             );
         }

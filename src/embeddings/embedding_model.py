@@ -1,7 +1,6 @@
-from langchain_huggingface import HuggingFaceEmbeddings
-
-
 def get_embeddings():
-    return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    raise RuntimeError(
+        "Local HuggingFace embeddings were removed to keep Render deployment "
+        "within memory limits. The app now uses src.retriever.retriever for "
+        "lightweight PDF retrieval."
     )

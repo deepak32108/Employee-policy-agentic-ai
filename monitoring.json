@@ -390,5 +390,61 @@
         "route": "POLICY",
         "confidence": 100,
         "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-29 12:32:33.683652",
+        "question": "who is elon musk",
+        "route": "WEB",
+        "confidence": 0,
+        "verdict": "WEB_SEARCH_FAILED"
+    },
+    {
+        "timestamp": "2026-06-29 12:33:01.917796",
+        "question": "how many casual leaves i can take",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-29 12:50:53.605623",
+        "question": "who is elon musk",
+        "route": "WEB",
+        "confidence": 60,
+        "verdict": "LLM_FALLBACK"
+    },
+    {
+        "timestamp": "2026-06-29 12:52:03.388784",
+        "question": "who is elon musk",
+        "route": "WEB",
+        "confidence": 60,
+        "verdict": "LLM_FALLBACK"
+    },
+    {
+        "timestamp": "2026-06-29 12:56:30.234271",
+        "question": "who is elon musk",
+        "route": "WEB",
+        "confidence": 60,
+        "verdict": "LLM_FALLBACK"
+    },
+    {
+        "timestamp": "2026-06-29 12:57:04.478441",
+        "question": "how many casual leaves i can take",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED"
+    },
+    {
+        "timestamp": "2026-06-29 13:02:55.277141",
+        "question": "who is elon musk",
+        "route": "WEB",
+        "confidence": 60,
+        "verdict": "LLM_FALLBACK"
+    },
+    {
+        "timestamp": "2026-06-29 13:05:47.759775",
+        "question": "who is elon musk",
+        "route": "WEB",
+        "confidence": 90,
+        "verdict": "WEB_SEARCH"
     }
 ]
