@@ -3,8 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
+import os
 
 from src.graph.workflow import graph
+from src.utils.search import search_web
 
 from src.api.analytics_routes import router as analytics_router
 from src.api.monitoring_routes import router as monitoring_router
@@ -110,4 +112,25 @@ def health():
 
     return {
         "status": "running"
+    }
+
+
+@app.get("/debug/web-search")
+def debug_web_search():
+
+    result = search_web(
+        "who is google ceo",
+        max_results=1
+    )
+
+    return {
+        "tavily_key_configured": bool(
+            os.getenv("TAVILY_API_KEY")
+        ),
+        "success": result["success"],
+        "provider": result["provider"],
+        "results_count": len(
+            result["results"]
+        ),
+        "error": result["error"][:300]
     }

@@ -12,8 +12,11 @@ def _search_tavily(query: str, max_results: int):
 
     response = requests.post(
         "https://api.tavily.com/search",
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        },
         json={
-            "api_key": api_key,
             "query": query,
             "search_depth": "basic",
             "max_results": max_results
