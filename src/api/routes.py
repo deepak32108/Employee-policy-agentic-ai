@@ -9,6 +9,7 @@ from datetime import datetime
 
 from src.graph.workflow import graph
 from src.utils.search import search_web
+from src.agents.monitoring_agent import log_interaction
 
 from src.api.analytics_routes import router as analytics_router
 from src.api.monitoring_routes import router as monitoring_router
@@ -81,11 +82,9 @@ class QuestionRequest(BaseModel):
 def record_user_activity(
         user_id: str,
         question: str,
-        search_web: bool = False
+        search_web: bool = False,
+        route: str = ""
 ):
-    if not user_id:
-        return
-
     activity_file = "user_activity.json"
     data = []
 
@@ -107,7 +106,8 @@ def record_user_activity(
             "timestamp": datetime.now().isoformat(),
             "user_id": user_id,
             "question": question,
-            "search_web": search_web
+            "search_web": search_web,
+            "route": route
         }
     )
 
@@ -132,12 +132,6 @@ def ask_question(
         request: QuestionRequest
 ):
 
-    record_user_activity(
-        request.user_id,
-        request.question,
-        request.search_web
-    )
-
     result = graph.invoke(
         {
             "question": request.question,
@@ -145,7 +139,22 @@ def ask_question(
         }
     )
 
+    if not request.search_web:
+        record_user_activity(
+            request.user_id,
+            request.question,
+            request.search_web,
+            result.get("route", "")
+        )
+
     if result["route"] == "OUTSIDE_POLICY" and not request.search_web:
+        log_interaction(
+            request.question,
+            "OUTSIDE_POLICY",
+            0,
+            "CONFIRM_WEB",
+            request.user_id
+        )
 
         return {
 

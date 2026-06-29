@@ -19,7 +19,7 @@ async function loadAnalytics() {
     document.getElementById(
         "web"
     ).innerText =
-        data.web_questions || 0;
+        data.outside_policy_questions || 0;
 
     document.getElementById(
         "gaps"
@@ -46,7 +46,7 @@ async function loadAnalytics() {
 
             labels: [
                 "Policy Questions",
-                "Web Questions",
+                "Outside Policy Questions",
                 "Knowledge Gaps"
             ],
 
@@ -59,7 +59,7 @@ async function loadAnalytics() {
 
                         data.policy_questions || 0,
 
-                        data.web_questions || 0,
+                        data.outside_policy_questions || 0,
 
                         data.knowledge_gaps || 0
                     ]

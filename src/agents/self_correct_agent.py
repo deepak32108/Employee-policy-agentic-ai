@@ -21,7 +21,7 @@ def improve_answer(
     llm = get_llm()
 
     prompt = f"""
-You are an expert HR Policy Auditor.
+You are an HR Policy Assistant.
 
 A previous answer may be incomplete.
 
@@ -38,11 +38,11 @@ Additional Context:
 {extended_context}
 
 Task:
-
-1. Verify previous answer.
-2. Correct mistakes.
-3. Provide improved answer.
-4. Use only document information.
+- Return only the final corrected answer.
+- Use only document information.
+- Keep the answer under 100 words.
+- Use short bullets only when useful.
+- Do not describe verification steps.
 """
 
     response = llm.invoke(prompt)

@@ -19,6 +19,15 @@ POLICY_KEYWORDS = [
     "employee benefits",
     "benefits",
 
+    "salary policy",
+    "salary",
+    "pay",
+    "compensation",
+    "ctc",
+    "payslip",
+    "pay slip",
+    "payroll",
+
     "promotion policy",
 
     "increment policy",
@@ -43,12 +52,6 @@ def route_question(question: str):
 
     question = question.lower().strip()
 
-    # Company-related phrases
-    for keyword in POLICY_KEYWORDS:
-
-        if keyword in question:
-            return "POLICY"
-
     # Questions about external companies
     external_company_words = [
 
@@ -67,6 +70,12 @@ def route_question(question: str):
 
         if company in question:
             return "OUTSIDE_POLICY"
+
+    # Company-related phrases
+    for keyword in POLICY_KEYWORDS:
+
+        if keyword in question:
+            return "POLICY"
 
     return "OUTSIDE_POLICY"
 

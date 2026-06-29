@@ -1,8 +1,59 @@
 import json
 import os
+import re
+from collections import Counter
 from datetime import datetime
 
 FEEDBACK_FILE = "feedback.json"
+
+
+def _summarize_comments(data):
+    topic_patterns = {
+        "lengthy answer": r"\b(lengthy|long|too much|verbose|short|brief|concise)\b",
+        "slow process": r"\b(slow|delay|late|loading|wait|waiting|time)\b",
+        "incorrect answer": r"\b(wrong|incorrect|not correct|bad answer|inaccurate)\b",
+        "missing details": r"\b(missing|incomplete|not enough|more detail)\b",
+        "source issue": r"\b(source|citation|pdf|page)\b"
+    }
+
+    topics = Counter()
+    recent_comments = []
+
+    for item in data:
+        comment = str(
+            item.get("comment", "")
+        ).strip()
+
+        if not comment:
+            continue
+
+        recent_comments.append(
+            {
+                "timestamp": item.get("timestamp", ""),
+                "rating": item.get("rating"),
+                "comment": comment
+            }
+        )
+
+        lowered = comment.lower()
+
+        for label, pattern in topic_patterns.items():
+            if re.search(pattern, lowered):
+                topics[label] += 1
+
+    if not topics:
+        topics["no written feedback yet"] = 0
+
+    return {
+        "topics": [
+            {
+                "label": label,
+                "count": count
+            }
+            for label, count in topics.most_common()
+        ],
+        "recent_comments": recent_comments[-10:][::-1]
+    }
 
 
 def save_feedback(
@@ -152,7 +203,10 @@ def get_feedback_stats():
             average_rating,
 
         "rating_distribution":
-            distribution
+            distribution,
+
+        "feedback_summary":
+            _summarize_comments(data)
     }
 
 

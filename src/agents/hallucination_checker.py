@@ -1,3 +1,31 @@
+import re
+
+
+STOP_WORDS = {
+    "a",
+    "an",
+    "and",
+    "are",
+    "as",
+    "is",
+    "of",
+    "or",
+    "the",
+    "to"
+}
+
+
+def _tokens(text):
+    return {
+        token
+        for token in re.findall(
+            r"[a-z0-9]+",
+            text.lower()
+        )
+        if token not in STOP_WORDS
+    }
+
+
 def check_hallucination(
         question: str,
         answer: str,
@@ -11,13 +39,19 @@ def check_hallucination(
             "confidence": 0
         }
 
-    answer_words = set(
-        answer.lower().split()
+    answer_words = _tokens(
+        answer
     )
 
-    context_words = set(
-        context.lower().split()
+    context_words = _tokens(
+        context
     )
+
+    if not answer_words:
+        return {
+            "verdict": "NOT_SUPPORTED",
+            "confidence": 0
+        }
 
     overlap = len(
         answer_words.intersection(
@@ -25,11 +59,13 @@ def check_hallucination(
         )
     )
 
+    support_ratio = overlap / len(answer_words)
+
     confidence = min(
         100,
         max(
             50,
-            overlap * 2
+            round(support_ratio * 100)
         )
     )
 

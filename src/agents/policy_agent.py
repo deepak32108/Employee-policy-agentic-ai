@@ -41,7 +41,11 @@ def answer_policy_question(question: str):
         }
     context = "\n\n".join(
         [
-            doc.page_content
+            (
+                f"Source: {doc.metadata.get('source', 'Unknown')}, "
+                f"Page: {doc.metadata.get('page', 'Unknown')}\n"
+                f"{doc.page_content}"
+            )
             for doc in docs
         ]
     )
@@ -66,7 +70,10 @@ Question:
 Rules:
 - Answer only using policy documents.
 - Never guess.
-- Keep answer concise.
+- Keep the answer under 120 words.
+- Prefer 2-4 short bullets for lists.
+- Do not include verification steps or repeat the question.
+- Mention the source name and page only when the answer is directly supported by that source text.
 """
 
     llm = get_llm()
@@ -97,7 +104,8 @@ Rules:
         )
 
     citations = generate_citations(
-        docs
+        docs,
+        answer
     )
 
     knowledge_gap = detect_knowledge_gap(

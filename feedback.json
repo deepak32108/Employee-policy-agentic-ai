@@ -37,5 +37,41 @@
         "comment": "",
         "user_id": "user_mqz2j2q8_7ro6moho",
         "answer_id": "answer_mqz2n1w1_cl4daj"
+    },
+    {
+        "timestamp": "2026-06-29 19:48:35.441027",
+        "question": "what is basic salary structure",
+        "answer": "* Basic Salary: 40% to 50% of total fixed CTC\n* Constitutes a part of the monthly salary components\n* Other components include HRA, Special Allowance, and Statutory Deductions \n(Source: salary_policy.pdf, Page: 1)",
+        "rating": 4,
+        "comment": "lengthy answer",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqzayomq_r8vqyj"
+    },
+    {
+        "timestamp": "2026-06-29 19:56:45.634819",
+        "question": "what is basic salary structure",
+        "answer": "* Basic Salary: 40% to 50% of total fixed CTC\n* Constitutes a part of the monthly salary components\n* Other components include HRA, Special Allowance, and Statutory Deductions \n(Source: salary_policy.pdf, Page: 1)",
+        "rating": 4,
+        "comment": "slow process",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqzb9m49_hitzx7"
+    },
+    {
+        "timestamp": "2026-06-29 19:57:31.262528",
+        "question": "who is cm of andhra pradesh",
+        "answer": "The current Chief Minister of Andhra Pradesh is Nara Chandrababu Naidu. He is a member of the Telugu Desam Party and has been serving as the Chief Minister since 2024.",
+        "rating": 4,
+        "comment": "excellent",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqzbaf98_pkyrqq"
+    },
+    {
+        "timestamp": "2026-06-29 19:58:16.287238",
+        "question": "how many hours i should work a week",
+        "answer": "Based on the web search results, it's recommended to work around 38-40 hours per week for a good balance of productivity, happiness, and time affluence. Some countries, like Denmark, have a standard workweek of around 38 hours, which is associated with high levels of happiness. Working more than 40 hours per week does not necessarily lead to higher productivity. However, the ideal number of hours may vary depending on individual circumstances and the laws of the country you're in, with some countries having standard working hours ranging from 35 to 60 hours per week.",
+        "rating": 4,
+        "comment": "lengthy answer",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "answer_id": "answer_mqzbbd0s_wq60to"
     }
 ]

@@ -92,12 +92,27 @@ def retrieve_documents(question: str):
 
     for document in _load_policy_documents():
         document_tokens = _tokenize(document.page_content)
-        overlap = len(query_tokens.intersection(document_tokens))
+        source_tokens = _tokenize(
+            document.metadata.get("source", "")
+        )
+        overlap = len(
+            query_tokens.intersection(document_tokens)
+        )
+        source_overlap = len(
+            query_tokens.intersection(source_tokens)
+        )
+        exact_phrase_boost = 0
 
-        if overlap:
+        for token in query_tokens:
+            if len(token) > 3 and token in document.page_content.lower():
+                exact_phrase_boost += 1
+
+        score = overlap + (source_overlap * 3) + exact_phrase_boost
+
+        if score:
             scored_documents.append(
                 (
-                    overlap,
+                    score,
                     len(document_tokens),
                     document
                 )

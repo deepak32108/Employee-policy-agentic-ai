@@ -174,7 +174,16 @@ function renderAnswer(question, data) {
                 } else {
                     sourcesHtml +=
                         `* ${escapeHtml(citation.source)}
-                        (Page ${escapeHtml(citation.page)})<br>`;
+                        (Page ${escapeHtml(citation.page)})`;
+
+                    if (citation.snippet) {
+                        sourcesHtml +=
+                            `<br><span class="source-snippet">
+                                ${escapeHtml(citation.snippet)}
+                            </span>`;
+                    }
+
+                    sourcesHtml += "<br>";
                 }
             }
         );
@@ -413,6 +422,18 @@ function toggleTheme() {
     document.body.classList.toggle(
         "dark-mode"
     );
+
+    const themeToggle =
+        document.getElementById(
+            "theme-toggle"
+        );
+
+    if (themeToggle) {
+        themeToggle.checked =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+    }
 }
 
 function showSection(section) {
@@ -564,8 +585,8 @@ async function loadAnalytics() {
                 <strong>${data.policy_questions || 0}</strong>
             </div>
             <div class="metric-card">
-                <span>Web Questions</span>
-                <strong>${data.web_questions || 0}</strong>
+                <span>Outside Policy Questions</span>
+                <strong>${data.outside_policy_questions || 0}</strong>
             </div>
             <div class="metric-card">
                 <span>Knowledge Gaps</span>
@@ -656,14 +677,14 @@ function renderAnalyticsCharts(data) {
                 data: {
                     labels: [
                         "Policy",
-                        "Web",
+                        "Outside Policy",
                         "Knowledge Gaps"
                     ],
                     datasets: [
                         {
                             data: [
                                 data.policy_questions || 0,
-                                data.web_questions || 0,
+                                data.outside_policy_questions || 0,
                                 data.knowledge_gaps || 0
                             ],
                             backgroundColor: [
@@ -770,10 +791,10 @@ function renderCanvasFallbackCharts(data) {
 
     drawBarChart(
         "questionMixChart",
-        ["Policy", "Web", "Gaps"],
+        ["Policy", "Outside", "Gaps"],
         [
             data.policy_questions || 0,
-            data.web_questions || 0,
+            data.outside_policy_questions || 0,
             data.knowledge_gaps || 0
         ],
         "#16a34a"
@@ -1048,9 +1069,64 @@ async function loadFeedbackSummary() {
                 <strong>${Number(data.average_rating || 0).toFixed(2)}</strong>
             </div>
         </div>
-        <p class="muted">
-            Feedback can be submitted directly below each answer in the chat.
-        </p>
+        ${renderFeedbackInsights(data.feedback_summary)}
+    `;
+}
+
+function renderFeedbackInsights(summary) {
+    const topics =
+        (summary && summary.topics) || [];
+
+    const comments =
+        (summary && summary.recent_comments) || [];
+
+    const topicRows = topics.map(
+        topic => `
+            <tr>
+                <td>${escapeHtml(topic.label)}</td>
+                <td>${escapeHtml(topic.count)}</td>
+            </tr>
+        `
+    ).join("");
+
+    const commentRows = comments.map(
+        item => `
+            <tr>
+                <td>${escapeHtml(item.timestamp)}</td>
+                <td>${escapeHtml(item.rating)}</td>
+                <td>${escapeHtml(item.comment)}</td>
+            </tr>
+        `
+    ).join("");
+
+    return `
+        <div class="dashboard-grid">
+            <div class="chart-card">
+                <h2>Common Feedback Mentions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>${topicRows}</tbody>
+                </table>
+            </div>
+            <div class="chart-card wide">
+                <h2>Recent Written Feedback</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Rating</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>${commentRows}</tbody>
+                </table>
+            </div>
+        </div>
     `;
 }
 

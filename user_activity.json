@@ -34,5 +34,61 @@
         "user_id": "user_mqz2j2q8_7ro6moho",
         "question": "who is elon musk",
         "search_web": true
+    },
+    {
+        "timestamp": "2026-06-29T19:41:01.043418",
+        "user_id": "codex_smoke_test",
+        "question": "what is basic salary structure",
+        "search_web": false,
+        "route": "POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:41:59.505241",
+        "user_id": "codex_smoke_test",
+        "question": "what is basic salary structure",
+        "search_web": false,
+        "route": "POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:45:44.717428",
+        "user_id": "codex_smoke_test",
+        "question": "what is basic salary structure",
+        "search_web": false,
+        "route": "POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:46:47.055350",
+        "user_id": "codex_smoke_test",
+        "question": "what is basic salary structure",
+        "search_web": false,
+        "route": "POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:48:01.387938",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "what is basic salary structure",
+        "search_web": false,
+        "route": "POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:56:31.345843",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "what is basic salary structure",
+        "search_web": false,
+        "route": "POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:57:03.118205",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "who is cm of andhra pradesh",
+        "search_web": false,
+        "route": "OUTSIDE_POLICY"
+    },
+    {
+        "timestamp": "2026-06-29T19:57:46.174655",
+        "user_id": "user_mqz2j2q8_7ro6moho",
+        "question": "how many hours i should work a week",
+        "search_web": false,
+        "route": "OUTSIDE_POLICY"
     }
 ]

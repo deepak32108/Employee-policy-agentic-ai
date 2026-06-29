@@ -1,6 +1,7 @@
 import json
 import os
-from collections import defaultdict
+import re
+from collections import defaultdict, Counter
 from datetime import datetime
 
 from fastapi import APIRouter
@@ -49,6 +50,55 @@ def _normalize_rating(rating):
         return 1
 
     return None
+
+
+def _comment_topics(feedback_data):
+    topic_patterns = {
+        "lengthy answer": r"\b(lengthy|long|too much|verbose|short|brief|concise)\b",
+        "slow process": r"\b(slow|delay|late|loading|wait|waiting|time)\b",
+        "incorrect answer": r"\b(wrong|incorrect|not correct|bad answer|inaccurate)\b",
+        "missing details": r"\b(missing|incomplete|not enough|more detail)\b",
+        "source issue": r"\b(source|citation|pdf|page)\b"
+    }
+
+    topics = Counter()
+    recent_comments = []
+
+    for item in feedback_data:
+        comment = str(
+            item.get("comment", "")
+        ).strip()
+
+        if not comment:
+            continue
+
+        recent_comments.append(
+            {
+                "timestamp": item.get("timestamp", ""),
+                "rating": item.get("rating"),
+                "comment": comment
+            }
+        )
+
+        lowered = comment.lower()
+
+        for label, pattern in topic_patterns.items():
+            if re.search(pattern, lowered):
+                topics[label] += 1
+
+    if not topics:
+        topics["no written feedback yet"] = 0
+
+    return {
+        "topics": [
+            {
+                "label": label,
+                "count": count
+            }
+            for label, count in topics.most_common()
+        ],
+        "recent_comments": recent_comments[-10:][::-1]
+    }
 
 
 @router.get("/analytics")
@@ -111,6 +161,79 @@ def analytics():
             2
         )
 
+    answered_routes = [
+        item
+        for item in monitoring_data
+        if item.get("route") in {"POLICY", "WEB", "OUTSIDE_POLICY"}
+    ]
+
+    routed_activity = [
+        item
+        for item in user_activity
+        if item.get("route")
+    ]
+
+    source_for_counts = (
+        answered_routes
+        if answered_routes
+        else routed_activity
+    )
+
+    policy_questions = sum(
+        1
+        for item in source_for_counts
+        if item.get("route") == "POLICY"
+    )
+
+    outside_policy_questions = sum(
+        1
+        for item in source_for_counts
+        if item.get("route") != "POLICY"
+    )
+
+    total_questions = len(
+        source_for_counts
+    )
+
+    if total_questions == 0:
+        total_questions = analytics_data.get(
+            "total_questions",
+            0
+        )
+        policy_questions = analytics_data.get(
+            "policy_questions",
+            0
+        )
+        outside_policy_questions = analytics_data.get(
+            "web_questions",
+            0
+        )
+
+    knowledge_gaps = sum(
+        1
+        for item in monitoring_data
+        if item.get("verdict") == "NOT_SUPPORTED"
+        or item.get("confidence", 100) < 70
+    )
+
+    if not monitoring_data:
+        knowledge_gaps = analytics_data.get(
+            "knowledge_gaps",
+            0
+        )
+
+    confidences = [
+        item.get("confidence")
+        for item in monitoring_data
+        if isinstance(item.get("confidence"), (int, float))
+    ]
+
+    average_confidence = (
+        round(sum(confidences) / len(confidences), 2)
+        if confidences
+        else analytics_data.get("average_confidence", 0)
+    )
+
     trend_map = defaultdict(
         lambda: {
             "users": set(),
@@ -120,7 +243,7 @@ def analytics():
         }
     )
 
-    for item in user_activity:
+    for item in source_for_counts:
         date_key = _date_from_timestamp(
             item.get("timestamp", "")
         )
@@ -185,37 +308,17 @@ def analytics():
         ]
     }
 
-    total_questions = len(
-        user_activity
-    )
-
-    if total_questions == 0:
-        total_questions = analytics_data.get(
-            "total_questions",
-            len(monitoring_data)
-        )
-
     return {
         "total_users": len(users),
         "total_questions": total_questions,
-        "policy_questions": analytics_data.get(
-            "policy_questions",
-            0
-        ),
-        "web_questions": analytics_data.get(
-            "web_questions",
-            0
-        ),
-        "knowledge_gaps": analytics_data.get(
-            "knowledge_gaps",
-            0
-        ),
-        "average_confidence": analytics_data.get(
-            "average_confidence",
-            0
-        ),
+        "policy_questions": policy_questions,
+        "outside_policy_questions": outside_policy_questions,
+        "web_questions": outside_policy_questions,
+        "knowledge_gaps": knowledge_gaps,
+        "average_confidence": average_confidence,
         "total_feedback": len(ratings),
         "average_rating": average_rating,
         "rating_distribution": rating_distribution,
+        "feedback_summary": _comment_topics(feedback_data),
         "trends": trends
     }
