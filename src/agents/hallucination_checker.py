@@ -1,81 +1,77 @@
 import re
 
 
-STOP_WORDS = {
-    "a",
-    "an",
-    "and",
-    "are",
-    "as",
-    "is",
-    "of",
-    "or",
-    "the",
-    "to"
-}
+def _normalize(text: str) -> str:
+    """
+    Normalize text for comparison.
+    """
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
 
-def _tokens(text):
-    return {
-        token
-        for token in re.findall(
-            r"[a-z0-9]+",
-            text.lower()
-        )
-        if token not in STOP_WORDS
-    }
+def check_hallucination(question: str, answer: str, context: str):
+    """
+    Rule-based hallucination checker.
 
+    Confidence Levels:
+    -------------------
+    100 -> Answer is almost entirely present in context
+    95  -> Strongly supported
+    85  -> Mostly supported
+    70  -> Partially supported
+    50  -> Weak support
+    0   -> Unsupported
+    """
 
-def check_hallucination(
-        question: str,
-        answer: str,
-        context: str
-):
-
-    if not context.strip():
-
+    if not answer.strip():
         return {
-            "verdict": "NOT_SUPPORTED",
-            "confidence": 0
+            "confidence": 0,
+            "verdict": "NOT_SUPPORTED"
         }
 
-    answer_words = _tokens(
-        answer
-    )
+    answer_norm = _normalize(answer)
+    context_norm = _normalize(context)
 
-    context_words = _tokens(
-        context
-    )
+    answer_words = set(answer_norm.split())
+    context_words = set(context_norm.split())
 
-    if not answer_words:
+    if len(answer_words) == 0:
         return {
-            "verdict": "NOT_SUPPORTED",
-            "confidence": 0
+            "confidence": 0,
+            "verdict": "NOT_SUPPORTED"
         }
 
-    overlap = len(
-        answer_words.intersection(
-            context_words
-        )
-    )
+    matched_words = answer_words.intersection(context_words)
 
-    support_ratio = overlap / len(answer_words)
+    overlap = len(matched_words) / len(answer_words)
 
-    confidence = min(
-        100,
-        max(
-            50,
-            round(support_ratio * 100)
-        )
-    )
+    if overlap >= 0.90:
+        confidence = 100
+        verdict = "SUPPORTED"
 
-    verdict = (
-        "SUPPORTED"
-        if confidence >= 60
-        else "NOT_SUPPORTED"
-    )
+    elif overlap >= 0.75:
+        confidence = 95
+        verdict = "SUPPORTED"
+
+    elif overlap >= 0.60:
+        confidence = 85
+        verdict = "SUPPORTED"
+
+    elif overlap >= 0.40:
+        confidence = 70
+        verdict = "SUPPORTED"
+
+    elif overlap >= 0.20:
+        confidence = 50
+        verdict = "PARTIALLY_SUPPORTED"
+
+    else:
+        confidence = 0
+        verdict = "NOT_SUPPORTED"
 
     return {
-        "verdict": verdict,
-        "confidence": confidence
+        "confidence": confidence,
+        "verdict": verdict
     }

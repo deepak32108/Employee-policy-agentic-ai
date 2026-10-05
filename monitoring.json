@@ -558,5 +558,45 @@
         "confidence": 90,
         "verdict": "WEB_SEARCH",
         "user_id": ""
+    },
+    {
+        "timestamp": "2026-10-05 12:30:19.874929",
+        "question": "hello",
+        "route": "OUTSIDE_POLICY",
+        "confidence": 0,
+        "verdict": "CONFIRM_WEB",
+        "user_id": "user_mqz2j2q8_7ro6moho"
+    },
+    {
+        "timestamp": "2026-10-05 12:30:24.565537",
+        "question": "hello",
+        "route": "WEB",
+        "confidence": 60,
+        "verdict": "LLM_FALLBACK",
+        "user_id": ""
+    },
+    {
+        "timestamp": "2026-10-05 13:15:55.259975",
+        "question": "kgf hero",
+        "route": "OUTSIDE_POLICY",
+        "confidence": 0,
+        "verdict": "CONFIRM_WEB",
+        "user_id": "user_mqz2j2q8_7ro6moho"
+    },
+    {
+        "timestamp": "2026-10-05 13:16:02.146563",
+        "question": "kgf hero",
+        "route": "WEB",
+        "confidence": 60,
+        "verdict": "LLM_FALLBACK",
+        "user_id": ""
+    },
+    {
+        "timestamp": "2026-10-05 15:35:35.914763",
+        "question": "how many casual leaves i can take",
+        "route": "POLICY",
+        "confidence": 100,
+        "verdict": "SUPPORTED",
+        "user_id": ""
     }
 ]

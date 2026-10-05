@@ -9,7 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b295ef02-6d52-4b87-beb3-21ba67579b6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics.json" beforeDir="false" afterPath="$PROJECT_DIR$/analytics.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring.json" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agents/hallucination_checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/agents/hallucination_checker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph/workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/workflow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/llm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/llm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_activity.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_activity.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

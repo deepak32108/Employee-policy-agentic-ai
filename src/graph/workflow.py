@@ -16,11 +16,7 @@ class AgentState(TypedDict):
     citations: list
     search_web: bool
     needs_web_confirmation: bool
-# -----------------------------------
 
-# Router Node
-
-# -----------------------------------
 
 def router_node(state):
 
@@ -31,13 +27,6 @@ def router_node(state):
  return {
     "route": route
   }
-
-
-# -----------------------------------
-
-# Policy Node
-
-# -----------------------------------
 
 def policy_node(state):
 
@@ -54,11 +43,6 @@ def policy_node(state):
   }
 
 
-# -----------------------------------
-
-# Confirmation Node
-
-# -----------------------------------
 
 def confirmation_node(state):
 
@@ -90,11 +74,7 @@ def web_node(state):
     "citations": result["citations"],
     "needs_web_confirmation": False
   }
-# -----------------------------------
 
-# Route Decision
-
-# -----------------------------------
 
 def decide_route(state):
 
@@ -107,11 +87,6 @@ def decide_route(state):
  return "confirm"
 
 
-# -----------------------------------
-
-# Build Graph
-
-# -----------------------------------
 
 builder = StateGraph(
 AgentState
